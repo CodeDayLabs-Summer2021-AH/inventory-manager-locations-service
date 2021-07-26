@@ -1,10 +1,12 @@
 package com.cdl.inventory_manager_locations_service.locations;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -21,7 +23,7 @@ public class LocationsController {
     }
 
     @GetMapping
-    public List<Location> getLocations() {
-        return locationsService.getLocations();
+    public List<Location> getLocations(@RequestParam Optional<String> query) {
+        return locationsService.getLocations(query);
     }
 }

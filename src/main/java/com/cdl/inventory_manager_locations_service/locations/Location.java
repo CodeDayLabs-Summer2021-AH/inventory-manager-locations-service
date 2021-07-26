@@ -16,6 +16,7 @@ public class Location {
     @SequenceGenerator(name = "location_sequence", sequenceName = "location_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "location_sequence")
     private Long id;
+    private String name;
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;
     private Integer rowCount;
@@ -24,10 +25,18 @@ public class Location {
     public Location() {
     }
 
-    public Location(Address address, Integer rowCount, Integer[] slots) {
+    public Location(String name, Address address, Integer rowCount) {
+        this.name = name;
         this.address = address;
         this.rowCount = rowCount;
-        // this.slots = slots;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Long getId() {
@@ -53,10 +62,4 @@ public class Location {
     public void setRowCount(Integer rowCount) {
         this.rowCount = rowCount;
     }
-
-    /*
-     * public Integer[] getSlots() { return slots; }
-     * 
-     * public void setSlots(Integer[] slots) { this.slots = slots; }
-     */
 }

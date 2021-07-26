@@ -1,8 +1,5 @@
 package com.cdl.inventory_manager_locations_service.locations;
 
-import java.util.Date;
-import java.util.List;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +16,7 @@ public class LocationsConfig {
 
             Address address = new Address("Hello", "Binary", "World", "Nowhere", "424242",
                     "Nowhere State - Nowhere Province - Nowhere Country", "NW");
-            Location location = new Location(address, 10, new Integer[10]);
+            Location location = new Location("Location1", address, 10);
 
             locationsRepository.save(location);
         };
