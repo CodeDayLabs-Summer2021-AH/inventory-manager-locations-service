@@ -1,10 +1,14 @@
 package com.cdl.inventory_manager_locations_service.locations;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -20,15 +24,18 @@ public class Location {
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;
     private Integer rowCount;
-    // private Integer[] slots;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "location_id")
+    private List<Section> sections;
 
     public Location() {
     }
 
-    public Location(String name, Address address, Integer rowCount) {
+    public Location(String name, Address address, Integer rowCount, List<Section> sections) {
         this.name = name;
         this.address = address;
         this.rowCount = rowCount;
+        this.sections = sections;
     }
 
     public String getName() {
@@ -61,5 +68,13 @@ public class Location {
 
     public void setRowCount(Integer rowCount) {
         this.rowCount = rowCount;
+    }
+
+    public List<Section> getSections() {
+        return sections;
+    }
+
+    public void setSections(List<Section> sections) {
+        this.sections = sections;
     }
 }
