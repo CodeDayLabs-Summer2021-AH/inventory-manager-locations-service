@@ -108,3 +108,4 @@ jobs:
           name: artifact
           #From this path
           path: target/inventory-manager-locations-service-0.0.1-SNAPSHOT.jar
+          
