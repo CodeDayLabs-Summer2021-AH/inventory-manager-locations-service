@@ -107,7 +107,7 @@ jobs:
           #Set artifact name
           name: artifact
           #From this path
-          path: target/inventory-manager-locations-service-0.0.1-SNAPSHOT.jar
+          path: target/inventory_manager_locations_service-0.0.1-SNAPSHOT.jar
 
   #Deploy's job
   deploy:
@@ -134,5 +134,5 @@ jobs:
           environment_name: locations-service-env
           version_label: ${{github.SHA}}
           region: us-east-2
-          deployment_package: inventory-manager-locations-service-0.0.1-SNAPSHOT.jar
+          deployment_package: inventory_manager_locations_service-0.0.1-SNAPSHOT.jar
           
