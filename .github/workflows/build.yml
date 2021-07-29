@@ -136,3 +136,4 @@ jobs:
           region: us-east-2
           deployment_package: inventory_manager_locations_service-0.0.1-SNAPSHOT.jar
           
+          
